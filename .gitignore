@@ -1,0 +1,22 @@
+# dados locais do bot — nunca versionar (contem a sessao do WhatsApp)
+dados/
+logs/
+
+# binarios — so na raiz: "abraham" sem barra tambem casaria com a pasta
+# cmd/abraham e escondia arquivos novos dela sem avisar
+*.exe
+/abraham
+
+# saida de teste
+testdata/*.actual
+saida.txt
+
+# captura temporaria da tela durante o desenvolvimento
+qr_saida.txt
+
+# gerado pelo build.ps1
+dist/
+*.exe~
+
+# estado local de sessao do Claude Code — nunca do projeto
+.claude/

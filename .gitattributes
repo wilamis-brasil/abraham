@@ -1,0 +1,19 @@
+# codigo Go e arquivos de teste sempre com LF, independente do SO
+*.go        text eol=lf
+*.golden    text eol=lf
+*.md        text eol=lf
+go.mod      text eol=lf
+go.sum      text eol=lf
+
+# scripts do Windows precisam de CRLF para o cmd.exe nao engasgar
+*.bat       text eol=crlf
+*.ps1       text eol=crlf
+
+# binarios
+*.png       binary
+*.mp4       binary
+*.exe       binary
+
+# YAML de CI roda em shell no Linux: um  no fim da linha quebra o script
+*.yml       text eol=lf
+*.yaml      text eol=lf

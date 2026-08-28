@@ -1,0 +1,42 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    # Windows, nao Linux: o programa e Windows-only por desenho (mutex
+    # nomeado para instancia unica, API de console para o painel), e
+    # internal/console e internal/whatsapp importam golang.org/x/sys/windows
+    # de verdade. Um runner Linux consegue cross-compilar com GOOS=windows,
+    # mas nao consegue EXECUTAR os testes — so um runner Windows roda
+    # go test ./... por inteiro, sem excluir pacote nenhum.
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: gofmt
+        shell: bash
+        run: |
+          unformatted=$(gofmt -l .)
+          if [ -n "$unformatted" ]; then
+            echo "not gofmt'd:"; echo "$unformatted"; exit 1
+          fi
+
+      - name: vet
+        shell: bash
+        run: go vet ./...
+
+      - name: build
+        shell: bash
+        run: go build ./...
+
+      - name: test
+        shell: bash
+        run: go test ./...
