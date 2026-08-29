@@ -1,0 +1,40 @@
+name: release
+
+# Publica o Abraham pronto para uso: quem clicar em "Code -> Download ZIP"
+# pega so o codigo-fonte (sem Go, isso nao roda). Este workflow gera o
+# dist\ de verdade e anexa como pacote baixavel na aba Releases.
+#
+# Dispara em tag (v1.0.0, v1.2.3...) ou manualmente pela aba Actions.
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version-file: go.mod
+          cache: true
+
+      - name: Compilar (mesmos portoes do build.ps1)
+        shell: pwsh
+        run: .\build.ps1
+
+      - name: Empacotar dist em zip
+        shell: pwsh
+        run: Compress-Archive -Path dist\* -DestinationPath abraham-windows.zip
+
+      - name: Publicar Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: abraham-windows.zip
+          generate_release_notes: true

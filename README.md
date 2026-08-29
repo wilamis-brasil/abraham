@@ -24,10 +24,21 @@ O Abraham faz isso em um comando, um número de cada vez, e diz quem não recebe
 
 ## Começar
 
-1. Copie a pasta para onde quiser.
-2. Dois cliques em **instalar.bat**. Ele copia o programa, cria o atalho na
-   Área de Trabalho e no Menu Iniciar, e **já abre o Abraham sozinho** — não
-   precisa fazer mais nada.
+> **Baixe o pacote pronto na aba [Releases](../../releases)** deste
+> repositório (`abraham-windows.zip`) — não o código-fonte pelo botão
+> "Code". O ZIP do "Code" só tem o Go-fonte, sem `abraham.exe`; quem clicar
+> em `instalar.bat` ali vai ver um erro dizendo que faltou o executável.
+
+1. Descompacte o `abraham-windows.zip` onde quiser.
+2. Dois cliques em **instalar.bat**.
+   > Pode aparecer **"O Windows protegeu o computador"** (SmartScreen) antes
+   > de instalar — normal em qualquer programa novo sem assinatura digital
+   > paga, não é erro. Clique em **Mais informações → Executar assim mesmo**.
+   > Só aparece uma vez; o instalador já remove esse aviso do programa
+   > instalado, então os próximos cliques abrem direto.
+
+   Ele copia o programa, cria o atalho na Área de Trabalho e no Menu Iniciar,
+   e **já abre o Abraham sozinho** — não precisa fazer mais nada.
 3. Na primeira vez aparece um código na tela. No celular: **WhatsApp → menu →
    Aparelhos conectados → Conectar aparelho**, e aponte a câmera.
 4. Quando aparecer **Conectado**, deixe de lado e use o WhatsApp normalmente.
