@@ -18,7 +18,7 @@ mesmo — não tem site, não tem nuvem, não tem conta para criar.
 boletim, evento. Um por um consome a manhã de alguém. Planilha com 300 números e
 copiar-colar é pior — erra destinatário.
 
-  x Com integração, Abraham faz isso em um comando, um número de cada vez, e diz quem não recebeu.
+Com integração, Abraham faz isso em um comando, um número de cada vez, e diz quem não recebeu.
 
 ---
 
